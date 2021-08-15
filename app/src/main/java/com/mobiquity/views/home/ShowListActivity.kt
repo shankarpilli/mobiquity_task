@@ -27,7 +27,7 @@ class ShowListActivity : AppCompatActivity() {
         val locationDao = db.locationDao()
         AsyncTask.execute {
             val data = locationDao.getAll()
-            val adapter = LocationListAdapter(data, this)
+            val adapter = LocationListAdapter(ArrayList(data), locationDao, this)
             recyclerview.adapter = adapter
         }
     }
